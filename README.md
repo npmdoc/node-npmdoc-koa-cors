@@ -1,9 +1,14 @@
-# api documentation for  [koa-cors (v0.0.16)](https://github.com/evert0n/koa-cors)  [![npm package](https://img.shields.io/npm/v/npmdoc-koa-cors.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-koa-cors) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-koa-cors.svg)](https://travis-ci.org/npmdoc/node-npmdoc-koa-cors)
+# npmdoc-koa-cors
+
+#### api documentation for  [koa-cors (v0.0.16)](https://github.com/evert0n/koa-cors)  [![npm package](https://img.shields.io/npm/v/npmdoc-koa-cors.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-koa-cors) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-koa-cors.svg)](https://travis-ci.org/npmdoc/node-npmdoc-koa-cors)
+
 #### CORS middleware for Koa
 
-[![NPM](https://nodei.co/npm/koa-cors.png?downloads=true)](https://www.npmjs.com/package/koa-cors)
+[![NPM](https://nodei.co/npm/koa-cors.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/koa-cors)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-koa-cors/build/screenCapture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-koa-cors_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-koa-cors/build/apidoc.html)
+- [https://npmdoc.github.io/node-npmdoc-koa-cors/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-koa-cors/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-koa-cors/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-koa-cors/build/apidoc.html)
 
 ![npmPackageListing](https://npmdoc.github.io/node-npmdoc-koa-cors/build/screenCapture.npmPackageListing.svg)
 
@@ -46,13 +51,11 @@
     "main": "index.js",
     "maintainers": [
         {
-            "name": "evert0n",
-            "email": "everton@notreve.com"
+            "name": "evert0n"
         }
     ],
     "name": "koa-cors",
     "optionalDependencies": {},
-    "readme": "ERROR: No README data found!",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/evert0n/koa-cors.git"
@@ -63,16 +66,6 @@
     "version": "0.0.16"
 }
 ```
-
-
-
-# <a name="apidoc.tableOfContents"></a>[table of contents](#apidoc.tableOfContents)
-
-#### [module koa-cors](#apidoc.module.koa-cors)
-
-
-
-# <a name="apidoc.module.koa-cors"></a>[module koa-cors](#apidoc.module.koa-cors)
 
 
 
