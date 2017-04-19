@@ -61,12 +61,143 @@
 
     <li class="apidocModuleLi"><a href="#apidoc.module.koa-cors">module koa-cors</a><ol>
 
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.koa-cors.koa-cors">
+            function <span class="apidocSignatureSpan"></span>koa-cors
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
     </ol></li>
 
 </ol></div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.koa-cors" id="apidoc.module.koa-cors">module koa-cors</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.koa-cors.koa-cors" id="apidoc.element.koa-cors.koa-cors">
+        function <span class="apidocSignatureSpan"></span>koa-cors
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getMiddleware(options) {
+
+  options = options || {};
+
+  var defaults = {
+    origin: true,
+    methods: &#x27;GET,HEAD,PUT,POST,DELETE&#x27;
+  };
+
+  // Set defaults
+  for (var key in defaults) {
+    if (!options.hasOwnProperty(key)) {
+      options[key] = defaults[key];
+    }
+  }
+
+  // Set expose
+  if (Array.isArray(options.expose)) {
+    options.expose = options.expose.join(&#x27;,&#x27;);
+  }
+
+  // Set maxAge
+  if (typeof options.maxAge === &#x27;number&#x27;) {
+    options.maxAge = options.maxAge.toString();
+  } else {
+    options.maxAge = null;
+  }
+
+  // Set methods
+  if (Array.isArray(options.methods)) {
+    options.methods = options.methods.join(&#x27;,&#x27;);
+  }
+
+  // Set headers
+  if (Array.isArray(options.headers)) {
+    options.headers = options.headers.join(&#x27;,&#x27;);
+  }
+
+  return function* cors(next) {
+
+<span class="apidocCodeCommentSpan">    /**
+     * Access Control Allow Origin
+     */
+</span>    var origin;
+
+    if (typeof options.origin === &#x27;string&#x27;) {
+      origin = options.origin;
+    } else if (options.origin === true) {
+      origin = this.get(&#x27;origin&#x27;) || &#x27;*&#x27;;
+    } else if (options.origin === false) {
+      origin = options.origin;
+    } else if (typeof options.origin === &#x27;function&#x27;) {
+      origin = options.origin(this.request);
+    }
+
+    if (origin === false) return;
+
+    this.set(&#x27;Access-Control-Allow-Origin&#x27;, origin);
+
+    /**
+     * Access Control Expose Headers
+     */
+    if (options.expose) {
+      this.set(&#x27;Access-Control-Expose-Headers&#x27;, options.expose);
+    }
+
+    /**
+     * Access Control Max Age
+     */
+    if (options.maxAge) {
+      this.set(&#x27;Access-Control-Max-Age&#x27;, options.maxAge);
+    }
+
+    /**
+     * Access Control Allow Credentials
+     */
+    if (options.credentials === true) {
+      this.set(&#x27;Access-Control-Allow-Credentials&#x27;, &#x27;true&#x27;);
+    }
+
+    /**
+     * Access Control Allow Methods
+     */
+    this.set(&#x27;Access-Control-Allow-Methods&#x27;, options.methods);
+
+    /**
+     * Access Control Allow Headers
+     */
+    var headers;
+
+    if (options.headers) {
+      headers = options.headers;
+    } else {
+      headers = this.get(&#x27;access-control-request-headers&#x27;);
+    }
+
+    if (headers) {
+      this.set(&#x27;Access-Control-Allow-Headers&#x27;, headers);
+    }
+
+    /**
+     * Returns
+     */
+    if (this.method === &#x27;OPTIONS&#x27;) {
+      this.status = 204;
+    } else {
+      yield next;
+    }
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
 
 </div>
 

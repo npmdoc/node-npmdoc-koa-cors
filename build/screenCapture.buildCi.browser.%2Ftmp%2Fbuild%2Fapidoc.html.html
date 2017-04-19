@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/evert0n/koa-cors"
-
-    >koa-cors (v0.0.16)</a>
+    <a href="https://github.com/evert0n/koa-cors">koa-cors (v0.0.16)</a>
 </h1>
 <h4>CORS middleware for Koa</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.koa-cors">module koa-cors</a><ol>
 
@@ -91,7 +84,7 @@
 
   var defaults = {
     origin: true,
-    methods: &#x27;GET,HEAD,PUT,POST,DELETE&#x27;
+    methods: 'GET,HEAD,PUT,POST,DELETE'
   };
 
   // Set defaults
@@ -103,11 +96,11 @@
 
   // Set expose
   if (Array.isArray(options.expose)) {
-    options.expose = options.expose.join(&#x27;,&#x27;);
+    options.expose = options.expose.join(',');
   }
 
   // Set maxAge
-  if (typeof options.maxAge === &#x27;number&#x27;) {
+  if (typeof options.maxAge === 'number') {
     options.maxAge = options.maxAge.toString();
   } else {
     options.maxAge = null;
@@ -115,12 +108,12 @@
 
   // Set methods
   if (Array.isArray(options.methods)) {
-    options.methods = options.methods.join(&#x27;,&#x27;);
+    options.methods = options.methods.join(',');
   }
 
   // Set headers
   if (Array.isArray(options.headers)) {
-    options.headers = options.headers.join(&#x27;,&#x27;);
+    options.headers = options.headers.join(',');
   }
 
   return function* cors(next) {
@@ -130,45 +123,45 @@
      */
 </span>    var origin;
 
-    if (typeof options.origin === &#x27;string&#x27;) {
+    if (typeof options.origin === 'string') {
       origin = options.origin;
     } else if (options.origin === true) {
-      origin = this.get(&#x27;origin&#x27;) || &#x27;*&#x27;;
+      origin = this.get('origin') || '*';
     } else if (options.origin === false) {
       origin = options.origin;
-    } else if (typeof options.origin === &#x27;function&#x27;) {
+    } else if (typeof options.origin === 'function') {
       origin = options.origin(this.request);
     }
 
     if (origin === false) return;
 
-    this.set(&#x27;Access-Control-Allow-Origin&#x27;, origin);
+    this.set('Access-Control-Allow-Origin', origin);
 
     /**
      * Access Control Expose Headers
      */
     if (options.expose) {
-      this.set(&#x27;Access-Control-Expose-Headers&#x27;, options.expose);
+      this.set('Access-Control-Expose-Headers', options.expose);
     }
 
     /**
      * Access Control Max Age
      */
     if (options.maxAge) {
-      this.set(&#x27;Access-Control-Max-Age&#x27;, options.maxAge);
+      this.set('Access-Control-Max-Age', options.maxAge);
     }
 
     /**
      * Access Control Allow Credentials
      */
     if (options.credentials === true) {
-      this.set(&#x27;Access-Control-Allow-Credentials&#x27;, &#x27;true&#x27;);
+      this.set('Access-Control-Allow-Credentials', 'true');
     }
 
     /**
      * Access Control Allow Methods
      */
-    this.set(&#x27;Access-Control-Allow-Methods&#x27;, options.methods);
+    this.set('Access-Control-Allow-Methods', options.methods);
 
     /**
      * Access Control Allow Headers
@@ -178,17 +171,17 @@
     if (options.headers) {
       headers = options.headers;
     } else {
-      headers = this.get(&#x27;access-control-request-headers&#x27;);
+      headers = this.get('access-control-request-headers');
     }
 
     if (headers) {
-      this.set(&#x27;Access-Control-Allow-Headers&#x27;, headers);
+      this.set('Access-Control-Allow-Headers', headers);
     }
 
     /**
      * Returns
      */
-    if (this.method === &#x27;OPTIONS&#x27;) {
+    if (this.method === 'OPTIONS') {
       this.status = 204;
     } else {
       yield next;
@@ -207,3 +200,4 @@
     ]
 </div>
 </div>
+</body></html>
